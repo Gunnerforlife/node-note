@@ -18,7 +18,7 @@ var standupSchema = new Schema({
 	project : { type: String, required:true, validate:requiredStringValidator },
 	workYesterday : { type: String, required:true, validate:requiredStringValidator },
 	workToday : { type: String, required:true, validate:requiredStringValidator},
-	impediment : { type: String, required:true , default : None},
+	impediment : { type: String, required:true , default : 'None'},
 	createdOn : { type: Date, default : Date.now }
 });
 

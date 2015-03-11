@@ -20,9 +20,15 @@ exports.create = function(req, res){
 		impediment : req.body.impediment
 	});
 
-	entry.save();
+	entry.save(function(err){
+		if(err){
+			var errMsg = 'Sorry, there was an error saving your note.';
+			res.render('newnote',{title:'Standup-New Note(error)',message:errMsg});
+		}else{
+			res.redirect(301,'/');
+		}
+	});
 
-	res.redirect(301,'/');
 }
 
 exports.getNote = function (req, res){
